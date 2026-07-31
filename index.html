@@ -393,6 +393,48 @@
   .plist .pday { font-size: 0.8rem; font-weight: 800; color: var(--red-ink); }
   .plist .pname { display: block; font-size: 1.02rem; font-weight: 800; margin: 2px 0 4px; }
   .plist .pnote { font-size: 0.82rem; color: var(--ink-soft); }
+
+  /* ===== 出番ボード ===== */
+  .turn {
+    border: 2px solid var(--red); border-radius: 14px;
+    background: var(--red-soft); padding: 16px 14px; margin-bottom: 26px;
+  }
+  .turn h2 { margin-top: 0; border: 0; padding: 0; }
+  .turn table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .turn th, .turn td { padding: 9px 8px; font-size: 0.86rem; text-align: left; border-bottom: 1px solid var(--line); }
+  .turn thead th { font-size: 0.74rem; font-weight: 800; color: var(--ink-soft); white-space: nowrap; }
+  .turn tbody th { font-weight: 800; white-space: nowrap; }
+  .turn tbody th small { display: block; font-weight: 700; font-size: 0.72rem; color: var(--ink-soft); }
+  .turn tr:last-child th, .turn tr:last-child td { border-bottom: 0; }
+  .yes { color: var(--red-ink); font-weight: 900; }
+  .no { color: var(--ink-soft); }
+  .turn .note { font-size: 0.82rem; color: var(--ink-soft); margin: 12px 0 0; }
+
+  /* 企画が入っている日のセルを強調 */
+  .caltable td.hasK { box-shadow: inset 0 0 0 2px var(--red); }
+
+  /* ===== 配信の中身カード ===== */
+  .rcard {
+    border: 1px solid var(--line); border-radius: 10px;
+    background: var(--surface); padding: 14px; margin-bottom: 14px;
+  }
+  .rcard h3 {
+    margin: 0 0 4px; font-size: 1.05rem; font-weight: 900;
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  }
+  .rcard h3 .day {
+    font-size: 0.7rem; font-weight: 800; padding: 3px 8px; border-radius: 999px;
+    background: var(--navy); color: var(--ground);
+  }
+  .rcard .lead { font-size: 0.86rem; color: var(--ink-soft); margin: 0 0 10px; }
+  .gtab { width: 100%; border-collapse: collapse; }
+  .gtab th, .gtab td { border: 1px solid var(--line); padding: 6px 8px; font-size: 0.8rem; text-align: left; }
+  .gtab th { background: var(--chip); font-weight: 800; white-space: nowrap; width: 8.5em; }
+  .gsub { font-size: 0.78rem; font-weight: 800; color: var(--ink-soft); margin: 12px 0 5px; }
+  .gsub.plus { color: var(--navy); }
+  .gsub.minus { color: var(--red-ink); }
+  .rlist { margin: 0; padding-left: 1.2em; font-size: 0.82rem; }
+  .rlist li { margin-bottom: 3px; }
 </style>
 
 <div class="wrap">
@@ -412,8 +454,8 @@
           <span class="kname">8月の配信カレンダー</span>
           <span class="pill now">毎週の予定</span>
         </span>
-        <p class="kdesc">曜日ごとの配信内容と、8月にやる企画の日程を1枚にまとめました。「いつ・何をやるか」はここを見れば分かります。</p>
-        <span class="kmeta">配信21本＋企画6本 ／ 2026年8月</span>
+        <p class="kdesc">曜日ごとの配信内容と、8月にやる企画の日程を1枚にまとめました。<b>お二人に出てもらう日</b>も最初に載せています。</p>
+        <span class="kmeta">お二人の出番は 8/5・8/15 ／ 2026年8月</span>
         <span class="kgo">カレンダーを見る →</span>
       </a>
     </div>
@@ -484,8 +526,45 @@
     <header>
       <div class="eyebrow">2026年8月</div>
       <h1>配信カレンダー</h1>
-      <p class="tagline">曜日ごとに配信の内容を決めて、毎週まわしていきます。そこに月イチの企画が乗る形です。</p>
+      <p class="tagline">曜日ごとに配信の内容を決めて、毎週まわしていきます。そこに企画が乗る形です。</p>
     </header>
+
+    <div class="turn">
+      <h2>お二人に出てもらう日</h2>
+      <p class="note" style="margin:6px 0 0">ここだけ押さえてもらえれば大丈夫です。<b>平日のいつもの配信は、たろ1人でやります。</b></p>
+      <table>
+        <thead>
+          <tr><th>日程</th><th>企画</th><th>ひろまるさん</th><th>むらさこさん</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>8/5（水）<small>20:00〜22:00</small></th>
+            <td>かえれま10<br><small style="color:var(--ink-soft)">マクドナルド</small></td>
+            <td class="yes">出演</td>
+            <td class="yes">答え管理</td>
+          </tr>
+          <tr>
+            <th>8/15（土）<small>1:00〜4:00</small></th>
+            <td>カラオケ5番勝負<br><small style="color:var(--ink-soft)">深夜スタート</small></td>
+            <td class="yes">対戦相手</td>
+            <td class="no">—</td>
+          </tr>
+          <tr>
+            <th>8/22（土）<small>1:00〜4:00</small></th>
+            <td>懺悔会</td>
+            <td class="no">—</td>
+            <td class="no">—</td>
+          </tr>
+          <tr>
+            <th>8/8・8/11・8/29<small>スワンボート／夏まつり／福岡72</small></th>
+            <td>調整中</td>
+            <td class="no">未定</td>
+            <td class="no">未定</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="note">⚠️ <b>8/15のカラオケは深夜1:00スタート</b>です（8/7から変更になりました）。ひろまるさん、この時間で大丈夫か教えてください。</p>
+    </div>
 
     <section class="block">
       <h2>毎週のかたち（曜日ルーティン）</h2>
@@ -520,19 +599,19 @@
           <td><span class="dnum sun">2</span><span class="ev rt">ギフト散歩</span></td>
           <td><span class="dnum">3</span><span class="ev rt">ラジオ</span></td>
           <td><span class="dnum">4</span><span class="ev rt">リスナー要望</span></td>
-          <td><span class="dnum">5</span><span class="ev kk">かえれま10<span class="t">20:00</span></span></td>
+          <td class="hasK"><span class="dnum">5</span><span class="ev kk">かえれま10<span class="t">20:00</span></span></td>
           <td><span class="dnum">6</span><span class="ev rt">筋トレ</span></td>
           <td><span class="dnum">7</span><span class="ev rt">散歩</span></td>
-          <td><span class="dnum sat">8</span><span class="ev kk">スワンボート<span class="t">16:00</span></span></td>
+          <td class="hasK"><span class="dnum sat">8</span><span class="ev kk">スワンボート<span class="t">16:00</span></span></td>
         </tr>
         <tr>
           <td><span class="dnum sun">9</span><span class="ev rt">ギフト散歩</span></td>
           <td><span class="dnum">10</span><span class="ev rt">ラジオ</span></td>
-          <td><span class="dnum">11</span><span class="ev rt">リスナー要望</span><span class="ev kk">夏まつり<span class="t">18:00</span></span></td>
+          <td class="hasK"><span class="dnum">11</span><span class="ev rt">リスナー要望</span><span class="ev kk">夏まつり<span class="t">18:00</span></span></td>
           <td class="off"><span class="dnum">12</span><span class="ev off">休み</span></td>
           <td><span class="dnum">13</span><span class="ev rt">筋トレ</span></td>
           <td><span class="dnum">14</span><span class="ev rt">散歩</span></td>
-          <td><span class="dnum sat">15</span><span class="ev kk">カラオケ5番勝負<span class="t">1:00</span></span></td>
+          <td class="hasK"><span class="dnum sat">15</span><span class="ev kk">カラオケ5番勝負<span class="t">1:00</span></span></td>
         </tr>
         <tr>
           <td><span class="dnum sun">16</span><span class="ev rt">ギフト散歩</span></td>
@@ -541,7 +620,7 @@
           <td class="off"><span class="dnum">19</span><span class="ev off">休み</span></td>
           <td><span class="dnum">20</span><span class="ev rt">筋トレ</span></td>
           <td><span class="dnum">21</span><span class="ev rt">散歩</span></td>
-          <td><span class="dnum sat">22</span><span class="ev kk">懺悔会<span class="t">1:00</span></span></td>
+          <td class="hasK"><span class="dnum sat">22</span><span class="ev kk">懺悔会<span class="t">1:00</span></span></td>
         </tr>
         <tr>
           <td><span class="dnum sun">23</span><span class="ev rt">ギフト散歩</span></td>
@@ -550,7 +629,7 @@
           <td class="off"><span class="dnum">26</span><span class="ev off">休み</span></td>
           <td><span class="dnum">27</span><span class="ev rt">筋トレ</span></td>
           <td><span class="dnum">28</span><span class="ev rt">散歩</span></td>
-          <td><span class="dnum sat">29</span><span class="ev kk">福岡72エリア<span class="t">1:00</span></span></td>
+          <td class="hasK"><span class="dnum sat">29</span><span class="ev kk">福岡72エリア<span class="t">1:00</span></span></td>
         </tr>
         <tr>
           <td><span class="dnum sun">30</span><span class="ev rt">ギフト散歩</span></td>
@@ -598,13 +677,88 @@
 
     <section class="block">
       <h2>いつもの配信の中身</h2>
-      <table class="wk">
-        <tr><th>ギフト散歩<br>（日）</th><td>海を背景に、顔は映さないスタイル。視聴者のギフトで「進む・戻る」が決まり、ゴールを目指して歩きます。ドラゴンが出たら一気にゴール、ライオンでスタート地点に強制送還。</td></tr>
-        <tr><th>ラジオ<br>（月）</th><td>海を背景にホワイトボードを立てて実施。話題を3つほど用意しておき、コメントを拾いながら広げます。最後にルーレットで次の内容を決めます。</td></tr>
-        <tr><th>リスナー要望<br>（火）</th><td>コメントでもらった要望に応えていく回。</td></tr>
-        <tr><th>筋トレ<br>（木）</th><td>腕立て50・スクワット50・縄跳び50・バービー20がノルマ。ギフトで回数が増えたり減ったりします。バラで1回減り、コインギフトで種目ごとに追加。<b>回数の上限はナシ＝増えた分は全部やります。</b></td></tr>
-        <tr><th>散歩<br>（金）</th><td>ギフトの仕掛けなしで、ゆるく歩きながら話す回。</td></tr>
-      </table>
+      <p class="tagline" style="margin-bottom:14px">お二人の出番はありませんが、「こうしたら面白いのでは」があればいつでも言ってください。</p>
+
+      <div class="rcard">
+        <h3><span class="day">日</span>ギフト散歩</h3>
+        <p class="lead">海を背景に歩きながら配信。<b>顔は映さないスタイル</b>で、ホワイトボードを使います。視聴者のギフトで「進む・戻る」が決まり、ゴールを目指します。</p>
+        <p class="gsub plus">▲ 進む</p>
+        <table class="gtab">
+          <tr><th>天才</th><td>10秒間ダッシュで進む</td></tr>
+          <tr><th>夕暮れを背に</th><td>タクシー1,000円分進む</td></tr>
+          <tr><th>ドラゴン</th><td>ゴールまで移動</td></tr>
+        </table>
+        <p class="gsub minus">▼ 戻る</p>
+        <table class="gtab">
+          <tr><th>バラ100本</th><td>100歩戻る</td></tr>
+          <tr><th>ドーナツ</th><td>30歩戻る</td></tr>
+          <tr><th>ミシカベア</th><td>1分間戻る</td></tr>
+          <tr><th>ハンドハート</th><td>10秒間ダッシュで戻る</td></tr>
+          <tr><th>銀河</th><td>10分間戻る</td></tr>
+          <tr><th>ライオン</th><td>スタート地点に強制送還</td></tr>
+        </table>
+        <p class="gsub">● そのほか</p>
+        <table class="gtab">
+          <tr><th>10kいいね</th><td>5分寄り道</td></tr>
+          <tr><th>流星群</th><td>ルーレット（下記7つのどれか）</td></tr>
+        </table>
+        <ul class="rlist" style="margin-top:8px">
+          <li>現在地から半分戻る</li>
+          <li>1分間ランニングで進む</li>
+          <li>10分間歩いて戻る</li>
+          <li>30秒ダッシュで戻る</li>
+          <li>30秒ダッシュで進む</li>
+          <li>人生やらかした話</li>
+          <li>5分休憩</li>
+        </ul>
+      </div>
+
+      <div class="rcard">
+        <h3><span class="day">月</span>ラジオ</h3>
+        <p class="lead">海を背景に、ホワイトボードを立てて実施。<b>1:00〜4:00の枠で2時間半〜3時間</b>。</p>
+        <table class="gtab">
+          <tr><th>① 話題</th><td>あらかじめ3つほど用意しておいて回します</td></tr>
+          <tr><th>② コメント</th><td>コメントを拾って話題を広げます</td></tr>
+          <tr><th>③ しめ</th><td>最後にルーレットで「明日の内容」を決めます</td></tr>
+        </table>
+      </div>
+
+      <div class="rcard">
+        <h3><span class="day">木</span>筋トレ</h3>
+        <p class="lead">海を背景に、ホワイトボードを三脚で立てて実施。ギフトで回数が増減します。<b>回数の上限はナシ＝増えた分は全部やります。</b></p>
+        <p class="gsub">● ノルマ</p>
+        <table class="gtab">
+          <tr><th>腕立て</th><td>50回</td></tr>
+          <tr><th>スクワット</th><td>50回</td></tr>
+          <tr><th>縄跳び</th><td>50回</td></tr>
+          <tr><th>バービー</th><td>20回</td></tr>
+        </table>
+        <p class="gsub minus">▼ 減る</p>
+        <table class="gtab">
+          <tr><th>バラ</th><td>1回減る</td></tr>
+        </table>
+        <p class="gsub plus">▲ 増える</p>
+        <table class="gtab">
+          <tr><th>1コイン</th><td>縄跳びが1回増える</td></tr>
+          <tr><th>3コイン</th><td>スクワット</td></tr>
+          <tr><th>5コイン</th><td>腕立て／腹筋</td></tr>
+          <tr><th>10コイン</th><td>バービー</td></tr>
+          <tr><th>いいね</th><td>10kごとに、今やっている種目が＋10回</td></tr>
+        </table>
+        <p class="gsub">● そのほか</p>
+        <table class="gtab">
+          <tr><th>ハンドハート</th><td>じゃんけんで増減</td></tr>
+          <tr><th>コーギー</th><td>10分休憩</td></tr>
+          <tr><th>1000コイン</th><td>ルーレット（1.0〜2.0倍）</td></tr>
+          <tr><th>はやぶさ</th><td>30分ローテーション</td></tr>
+        </table>
+        <p class="lead" style="margin:10px 0 0">※ 増える回数の細かい数字は現在調整中です。</p>
+      </div>
+
+      <div class="rcard">
+        <h3><span class="day">火</span>リスナー要望 ／ <span class="day">金</span>散歩</h3>
+        <p class="lead" style="margin:0">この2つは中身をこれから詰めます。決まったらこのページに追記します。</p>
+      </div>
     </section>
 
     <footer>
